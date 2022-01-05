@@ -1,12 +1,12 @@
 import { ChannelPressureMessage } from './message/ChannelPressureMessage';
 import { MessageTypes } from './message/Constants';
 import { ControlChangeMessage } from './message/ControlChangeMessage';
-import { MidiMessage } from './message/MidiMessage';
 import { NoteOffMessage } from './message/NoteOffMessage';
 import { NoteOnMessage } from './message/NoteOnMessage';
 import { PitchBendChangeMessage } from './message/PitchBendChangeMessage';
 import { PolyphonicKeyPressureMessage } from './message/PolyphonicKeyPressureMessage';
 import { ProgramChangeMessage } from './message/ProgramChangeMessage';
+import { MidiMessage } from './Messages';
 
 
 export abstract class MidiListenerBase {

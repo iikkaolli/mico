@@ -1,5 +1,5 @@
-import { MidiChannel } from './message/Constants';
-import { MidiMessage } from './message/MidiMessage';
+import { MidiMessage } from "./message/MidiMessage";
+import { MidiChannel } from './Messages';
 import { MidiListenerBase } from './MidiListenerBase';
 
 export class MidiMessageCenter {
