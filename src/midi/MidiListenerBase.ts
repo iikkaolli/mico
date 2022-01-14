@@ -9,7 +9,7 @@ import { ProgramChangeMessage } from './message/ProgramChangeMessage';
 import { MidiMessage } from './Messages';
 
 
-export abstract class MidiListenerBase {
+export class MidiListenerBase {
     receive(message: MidiMessage): void {
         switch (message.message) {
             case MessageTypes.ProgramChange:
@@ -37,11 +37,11 @@ export abstract class MidiListenerBase {
                 break;
         }
     }
-    abstract onProgramChange(message: ProgramChangeMessage): void;
-    abstract onChannelPressure(message: ChannelPressureMessage): void;
-    abstract onControlChange(message: ControlChangeMessage): void;
-    abstract onNoteOff(message: NoteOffMessage): void;
-    abstract onNoteOn(message: NoteOnMessage): void;
-    abstract onPolyphonicKeyPressure(message: PolyphonicKeyPressureMessage): void;
-    abstract onPitchBendChange(message: PitchBendChangeMessage): void;
+    protected onProgramChange(message: ProgramChangeMessage): void{}
+    protected onChannelPressure(message: ChannelPressureMessage): void{}
+    protected onControlChange(message: ControlChangeMessage): void{}
+    protected onNoteOff(message: NoteOffMessage): void{}
+    protected onNoteOn(message: NoteOnMessage): void{}
+    protected onPolyphonicKeyPressure(message: PolyphonicKeyPressureMessage): void{}
+    protected onPitchBendChange(message: PitchBendChangeMessage): void{}
 }

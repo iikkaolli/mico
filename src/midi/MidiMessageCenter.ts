@@ -1,11 +1,14 @@
 import { MidiMessage } from "./message/MidiMessage";
 import { MidiChannel } from './Messages';
+import { Device } from './MidiDeviceCenter';
 import { MidiListenerBase } from './MidiListenerBase';
 
 export class MidiMessageCenter {
     private _listeners: MidiListenerBase[][];
+    private _device: Device;
 
-    constructor() {
+    constructor(device: Device) {
+        this._device = device;
         this._listeners = new Array<MidiListenerBase[]>(16);
         for (let index = 0; index < 16; index++) {
             this._listeners[index] = new Array<MidiListenerBase>();
@@ -28,7 +31,7 @@ export class MidiMessageCenter {
         })
         return 0;
     }
-    
+
     get totalListeners(): number {
         const total = this._listeners.reduce(
             (total: number, array: MidiListenerBase[]): number => {
