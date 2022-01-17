@@ -10,4 +10,9 @@ export class PolyphonicKeyPressureMessage extends MessageBase {
         this.key = key;
         this.pressureValue = value;
     }
+
+    convert(): number[] {
+        return [ this.control, this.key, this.pressureValue]
+    }
+
 }

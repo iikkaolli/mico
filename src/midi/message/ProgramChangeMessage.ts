@@ -8,4 +8,9 @@ export class ProgramChangeMessage extends MessageBase {
         super(MessageTypes.ProgramChange, channel);
         this.program = program;
     }
+
+    convert(): number[] {
+        return [this.control, this.program];
+    }
+
 }

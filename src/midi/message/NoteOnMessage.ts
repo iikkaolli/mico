@@ -10,4 +10,9 @@ export class NoteOnMessage extends MessageBase {
         this.key = key;
         this.velocity = velocity;
     }
+
+    convert(): number[] {
+        return [this.control, this.key, this.velocity];
+    }
+
 }

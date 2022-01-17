@@ -1,14 +1,11 @@
 import { MidiMessage } from "./message/MidiMessage";
 import { MidiChannel } from './Messages';
-import { Device } from './MidiDeviceCenter';
 import { MidiListenerBase } from './MidiListenerBase';
 
-export class MidiMessageCenter {
+export class MidiRouter {
     private _listeners: MidiListenerBase[][];
-    private _device: Device;
 
-    constructor(device: Device) {
-        this._device = device;
+    constructor() {
         this._listeners = new Array<MidiListenerBase[]>(16);
         for (let index = 0; index < 16; index++) {
             this._listeners[index] = new Array<MidiListenerBase>();

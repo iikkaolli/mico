@@ -1,14 +1,14 @@
-import { ConsoleWriter } from './midi/listeners/ConsoleWriter';
-import { MidiProgramNumber } from './midi/message/Constants';
-import { ProgramChangeMessage } from './midi/message/ProgramChangeMessage';
-import { Device } from './midi/MidiDeviceCenter';
-import { MidiMessageCenter } from './midi/MidiMessageCenter';
+import { MidiApp } from './midi/MidiApp';
+import { MidiDeviceCenter } from './midi/MidiDeviceCenter';
 
-console.log("Hello World!")
+const devCenter = MidiDeviceCenter.getInstance();
+console.log(devCenter.outputs());
 
-const mc = new MidiMessageCenter(new Device());
-const cw = new ConsoleWriter();
-mc.register(1, cw);
-for (let index = 0; index < 50; index++) {
-    mc.send(new ProgramChangeMessage(1, index as MidiProgramNumber));
-}
+console.log(devCenter.inputs());
+
+const app = new MidiApp();
+const output = devCenter.outputs()[0];
+
+app.start();
+
+app.stop();

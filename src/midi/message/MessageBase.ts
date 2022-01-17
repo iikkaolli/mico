@@ -8,4 +8,9 @@ export abstract class MessageBase {
         this.message = message;
         this.channel = channel;
     }
+
+    get control(): number {
+        return this.message + this.channel;
+    }
+    abstract convert(): Array<number>
 }

@@ -8,4 +8,7 @@ export class ChannelPressureMessage extends MessageBase {
         super(MessageTypes.ChannelPressure, channel);
         this.pressureValue = value;
     }
+    convert(): number[] {
+        return [ this.control, this.pressureValue]
+    }
 }

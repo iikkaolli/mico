@@ -10,4 +10,9 @@ export class ControlChangeMessage extends MessageBase {
         this.ccNumber = ccNumber;
         this.ccValue = ccValue;
     }
+
+    convert(): number[] {
+        return [this.control, this.ccNumber, this.ccValue];
+    }
+
 }

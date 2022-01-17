@@ -5,23 +5,22 @@ import { NoteOnMessage } from '../../midi/message/NoteOnMessage';
 import { PitchBendChangeMessage } from '../../midi/message/PitchBendChangeMessage';
 import { PolyphonicKeyPressureMessage } from '../../midi/message/PolyphonicKeyPressureMessage';
 import { ProgramChangeMessage } from '../../midi/message/ProgramChangeMessage';
-import { Device } from '../../midi/MidiDeviceCenter';
-import { MidiMessageCenter } from '../../midi/MidiMessageCenter';
+import { MidiRouter } from '../../midi/MidiRouter';
 import { TestListener } from './TestListener';
 
-describe("MidiMessageCenter tests", () => {
+describe("MidiRouter tests", () => {
     it("Construction", () => {
-        const mc = new MidiMessageCenter(new Device());
+        const mc = new MidiRouter();
         expect(mc).not.toBeNull();
     })
     it("Register listener", () => {
-        const mc = new MidiMessageCenter(new Device());
+        const mc = new MidiRouter();
         const listener = new TestListener("1")
         mc.register(1, listener);
         expect(mc.totalListeners).toEqual(1);
     })
     it("Register listener", () => {
-        const mc = new MidiMessageCenter(new Device());
+        const mc = new MidiRouter();
         const listener1 = new TestListener("1")
         mc.register(1, listener1);
         const listener2 = new TestListener("1");
@@ -29,7 +28,7 @@ describe("MidiMessageCenter tests", () => {
         expect(mc.totalListeners).toEqual(2);
     })
     it("Send message", () => {
-        const mc = new MidiMessageCenter(new Device());
+        const mc = new MidiRouter();
         const listener = new TestListener("1")
         mc.register(1, listener);
         expect(mc.totalListeners).toEqual(1);
@@ -37,7 +36,7 @@ describe("MidiMessageCenter tests", () => {
         expect(listener.pcValue).toEqual(25)
     })
     it("Send all different messages", () => {
-        const mc = new MidiMessageCenter(new Device());
+        const mc = new MidiRouter();
         const listener = new TestListener("1");
         mc.register(3, listener);
         mc.send(new ProgramChangeMessage(3, 85));
@@ -63,7 +62,7 @@ describe("MidiMessageCenter tests", () => {
         expect(listener.pbValue).toEqual(12345);
     })
     it("Register and unregister", () => {
-        const mc = new MidiMessageCenter(new Device());
+        const mc = new MidiRouter();
         const listener1 = new TestListener("1");
         const listener2 = new TestListener("2");
         const listener3 = new TestListener("3");

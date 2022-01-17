@@ -12,4 +12,9 @@ export class PitchBendChangeMessage extends MessageBase {
             this.pitchBendValue = value;
         }
     }
+
+    convert(): number[] {
+        return [this.control, this.pitchBendValue];
+    }
+
 }
