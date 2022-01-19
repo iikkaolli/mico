@@ -10,4 +10,5 @@ export abstract class MidiDeviceBase {
 
     abstract open(): void;
     abstract close(): void;
+    abstract isRunning(): boolean;
 }

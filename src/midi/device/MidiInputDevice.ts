@@ -54,4 +54,7 @@ export class MidiInputDevice extends MidiDeviceBase {
             this._input.closePort();
         }
     }
+    isRunning(): boolean {
+        return this._input.isPortOpen();
+    }
 }

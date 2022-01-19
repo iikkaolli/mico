@@ -28,4 +28,7 @@ export class MidiOutputDevice extends MidiDeviceBase {
             this._output.send(message.convert());
         }
     }
+    isRunning(): boolean {
+        return this._output.isPortOpen();
+    }
 }
