@@ -1,5 +1,5 @@
 import midi from 'midi';
-import { ChannelPressureMessage, ControlChangeMessage, Data4Bit, Data7Bit, MessageTypes, MidiMessage, NoteOffMessage, NoteOnMessage, PitchBendChangeMessage, PolyphonicKeyPressureMessage, ProgramChangeMessage } from './Messages';
+import { ChannelPressureMessage, ControlChangeMessage, Data4Bit, Data7Bit, MessageTypes, MidiMessage, NoteOffMessage, NoteOnMessage, PitchBendChangeMessage, PolyphonicKeyPressureMessage, ProgramChangeMessage } from '../Messages';
 import { MidiDeviceBase } from "./MidiDeviceBase";
 
 

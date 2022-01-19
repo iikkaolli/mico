@@ -1,5 +1,5 @@
 import midi from 'midi';
-import { MidiMessage } from './Messages';
+import { MidiMessage } from '../Messages';
 import { MidiDeviceBase } from "./MidiDeviceBase";
 
 

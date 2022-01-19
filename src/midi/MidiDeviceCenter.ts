@@ -1,7 +1,5 @@
 import midi from 'midi';
-import { MidiDeviceBase } from './MidiDeviceBase';
-import { MidiInputDevice } from './MidiInputDevice';
-import { MidiOutputDevice } from './MidiOutputDevice';
+import { MidiInputDevice, MidiOutputDevice } from './Devices';
 
 export class MidiDeviceCenter {
     private static _devCenter: MidiDeviceCenter;
@@ -17,9 +15,9 @@ export class MidiDeviceCenter {
     private constructor() {
     }
 
-    inputs(): Array<MidiDeviceBase> {
+    inputs(): Array<MidiInputDevice> {
         const input = new midi.Input();
-        const inputs = Array<MidiDeviceBase>();
+        const inputs = Array<MidiInputDevice>();
         const nInputs = input.getPortCount();
         for (let index = 0; index < nInputs; index++) {
             inputs.push(new MidiInputDevice(index, input.getPortName(index)));
